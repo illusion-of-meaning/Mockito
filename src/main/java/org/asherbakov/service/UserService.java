@@ -32,10 +32,6 @@ public class UserService {
 
     public boolean userIsExists(String login, String password) {
         List<User> userList = userRepository.getAllUsers();
-        if (userList.contains(new User(login, password))) {
-            return true;
-        } else {
-            return false;
-        }
+        return userList.contains(new User(login, password));
     }
 }
