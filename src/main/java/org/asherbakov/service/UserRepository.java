@@ -16,11 +16,11 @@ public class UserRepository {
         }
     }
 
-    public Optional<User> getUserForLogin(String login) {
+    public Optional<User> getUserByLogin(String login) {
         return userList.stream().filter(s -> s.getLOGIN().equals(login)).findAny();
     }
 
-    public Optional<User> getUserForLoginAndPassword(String login, String password) {
+    public Optional<User> getUserByLoginAndPassword(String login, String password) {
         return userList.stream()
                 .filter(s -> s.getLOGIN().equals(login))
                 .filter(s -> s.getPassword().equals(password))

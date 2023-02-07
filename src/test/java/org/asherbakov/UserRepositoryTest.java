@@ -31,35 +31,35 @@ public class UserRepositoryTest {
     @Test
     @DisplayName("When user 'test2' find in list, return correct answer")
     void findUserForLogin() {
-        Optional<User> user = userRepository.getUserForLogin("test2");
+        Optional<User> user = userRepository.getUserByLogin("test2");
         Assertions.assertTrue(user.isPresent());
     }
 
     @Test
     @DisplayName("When user not find in list, return correct answer")
     void notFindUserForLogin() {
-        Optional<User> user = userRepository.getUserForLogin("test222222");
+        Optional<User> user = userRepository.getUserByLogin("test222222");
         Assertions.assertFalse(user.isPresent());
     }
 
     @Test
     @DisplayName("When find user for login/password, return correct answer")
     void findUserForLoginAndPassword() {
-        Optional<User> user = userRepository.getUserForLoginAndPassword("test1", "1");
+        Optional<User> user = userRepository.getUserByLoginAndPassword("test1", "1");
         Assertions.assertTrue(user.isPresent());
     }
 
     @Test
     @DisplayName("When equals password but not equals login, return correct answer")
     void equalsPasswordNotEqualsLogin() {
-        Optional<User> user = userRepository.getUserForLoginAndPassword("test11546", "1");
+        Optional<User> user = userRepository.getUserByLoginAndPassword("test11546", "1");
         Assertions.assertFalse(user.isPresent());
     }
 
     @Test
     @DisplayName("When equals login but not equals password, return correct answer")
     void equalsLoginNotEqualsPassword() {
-        Optional<User> user = userRepository.getUserForLoginAndPassword("test1", "15684");
+        Optional<User> user = userRepository.getUserByLoginAndPassword("test1", "15684");
         Assertions.assertFalse(user.isPresent());
     }
 }
